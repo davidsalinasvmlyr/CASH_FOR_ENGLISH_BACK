@@ -1,0 +1,36 @@
+# Core Django & DRF
+Django==5.0.2
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+
+# Database
+psycopg[binary]==3.2.12
+
+# Authentication & Security
+djangorestframework-simplejwt==5.3.1
+django-environ==0.11.2
+
+# API Documentation
+drf-spectacular==0.27.1
+
+# Redis & Caching
+redis==5.0.1
+django-redis==5.4.0
+
+# Task Queue (futuro)
+celery==5.3.6
+
+# Utils
+python-decouple==3.8
+Pillow==11.0.0
+
+# Development
+pytest==8.0.0
+pytest-django==4.7.0
+black==24.1.1
+flake8==7.0.0
+isort==5.13.2
+
+# Production
+gunicorn==21.2.0
+whitenoise==6.6.0
