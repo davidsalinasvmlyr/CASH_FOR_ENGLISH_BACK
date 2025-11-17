@@ -50,7 +50,9 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    # Aquí irán tus apps: 'users', 'courses', 'rewards', etc.
+    'apps.users',
+    'apps.courses',
+    'apps.rewards',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -98,15 +100,22 @@ WSGI_APPLICATION = 'cash_for_english.wsgi.application'
 # ==============================================================================
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT', default='5432'),
-        'CONN_MAX_AGE': 600,  # Reutilizar conexiones para mejor rendimiento
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Configuración para PostgreSQL (usar en producción)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOST'),
+#         'PORT': env('DB_PORT', default='5432'),
+#     }
+# }
 
 # ==============================================================================
 # CACHE (Redis)
@@ -167,6 +176,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # DEFAULT PRIMARY KEY
 # ==============================================================================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==============================================================================
+# AUTH USER MODEL
+# ==============================================================================
+AUTH_USER_MODEL = 'users.User'
 
 # ==============================================================================
 # REST FRAMEWORK
